@@ -3,8 +3,9 @@
 Render H264 image streams received through socket.
 
 - Recieves H264 encoded image stream through socket.
-- Decode it into CMSampleBuffer 
+- Decode it into CMSampleBuffer.
 - Decompress it using VideoToolbox or display data directly using AVSampleBufferDisplayLayer.
+- All the above functionalities runs on the background queue.
 
 
 Issues:
