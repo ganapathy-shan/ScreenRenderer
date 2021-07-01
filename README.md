@@ -1,6 +1,6 @@
 # ScreenRenderer
 
-Render H264 image streams received through socket.
+Render H264 image streams received through socket by using GPU.
 
 - Recieves H264 encoded image stream through socket.
 - Decode it into CMSampleBuffer.
