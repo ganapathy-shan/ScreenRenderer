@@ -13,6 +13,7 @@ Issues:
 - Please find the sample buffer details on both end of the pipe.
 
 #Sample Buffer after H264 Compression before sending through the socket.
+
 CMSampleBuffer 0x10062ec60 retainCount: 9 allocator: 0x7fff8dd65cc0
 	invalid = NO
 	dataReady = YES
@@ -52,6 +53,7 @@ CMSampleBuffer 0x10062ec60 retainCount: 9 allocator: 0x7fff8dd65cc0
 	dataBuffer = 0x600003014f30
 
 #Sample Buffer after receiving from the socket.
+
 CMSampleBuffer 0x100715da0 retainCount: 1 allocator: 0x7fff8dd65cc0
 	invalid = NO
 	dataReady = YES
@@ -95,12 +97,6 @@ CMSampleBuffer 0x100715da0 retainCount: 1 allocator: 0x7fff8dd65cc0
 TODO:
 - Fix the issue with Sample Buffer to fix H264 Decompression.
 - Render the decompressed data using MetalKit.
-
-
-
-
-
-
 
 
 Build instruction: 
