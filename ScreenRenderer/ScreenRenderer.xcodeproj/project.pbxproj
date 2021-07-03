@@ -16,7 +16,7 @@
 		C5240390268B963300D5FEE8 /* ScreenRendererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C524038F268B963300D5FEE8 /* ScreenRendererTests.swift */; };
 		C524039B268B963300D5FEE8 /* ScreenRendererUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C524039A268B963300D5FEE8 /* ScreenRendererUITests.swift */; };
 		C52403B1268B968900D5FEE8 /* RendererTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52403B0268B968900D5FEE8 /* RendererTransport.swift */; };
-		C52403BF268BB69500D5FEE8 /* black.metal in Sources */ = {isa = PBXBuildFile; fileRef = C52403BD268BB69500D5FEE8 /* black.metal */; };
+		C52403BF268BB69500D5FEE8 /* transparent.metal in Sources */ = {isa = PBXBuildFile; fileRef = C52403BD268BB69500D5FEE8 /* transparent.metal */; };
 		C52403C0268BB69500D5FEE8 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52403BE268BB69500D5FEE8 /* Filter.swift */; };
 		C551FADC2690D1EE00876688 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = C551FADB2690D1EE00876688 /* Shaders.metal */; };
 		C551FAF42690DD7500876688 /* MTKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551FAF32690DD7500876688 /* MTKViewController.swift */; };
@@ -60,7 +60,7 @@
 		C524039A268B963300D5FEE8 /* ScreenRendererUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRendererUITests.swift; sourceTree = "<group>"; };
 		C524039C268B963300D5FEE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C52403B0268B968900D5FEE8 /* RendererTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendererTransport.swift; sourceTree = "<group>"; };
-		C52403BD268BB69500D5FEE8 /* black.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = black.metal; sourceTree = "<group>"; };
+		C52403BD268BB69500D5FEE8 /* transparent.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = transparent.metal; sourceTree = "<group>"; };
 		C52403BE268BB69500D5FEE8 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		C551FADB2690D1EE00876688 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		C551FAF32690DD7500876688 /* MTKViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTKViewController.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 				C5240382268B963300D5FEE8 /* Main.storyboard */,
 				C5240385268B963300D5FEE8 /* Info.plist */,
 				C5240386268B963300D5FEE8 /* ScreenRenderer.entitlements */,
-				C52403BD268BB69500D5FEE8 /* black.metal */,
+				C52403BD268BB69500D5FEE8 /* transparent.metal */,
 				C52403BE268BB69500D5FEE8 /* Filter.swift */,
 				C5E9B3B0268CB50D00C7C988 /* ScreenRenderer-Bridging-Header.h */,
 				C5E9B3C0268CC92E00C7C988 /* Data+Extension.swift */,
@@ -367,7 +367,7 @@
 				C5E9B3F6268E39EF00C7C988 /* H264Decoder.m in Sources */,
 				C551FAF42690DD7500876688 /* MTKViewController.swift in Sources */,
 				C52403B1268B968900D5FEE8 /* RendererTransport.swift in Sources */,
-				C52403BF268BB69500D5FEE8 /* black.metal in Sources */,
+				C52403BF268BB69500D5FEE8 /* transparent.metal in Sources */,
 				C524037D268B963000D5FEE8 /* AppDelegate.swift in Sources */,
 				C5070C93269070F000606A63 /* RenderSession.swift in Sources */,
 				C5E9B3E7268E0C0C00C7C988 /* DisplayLayerRender.m in Sources */,
