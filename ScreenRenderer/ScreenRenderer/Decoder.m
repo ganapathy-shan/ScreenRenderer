@@ -7,26 +7,22 @@
 
 #import "Decoder.h"
 #import "DisplayLayerRender.h"
-#import "H264Decoder.h"
 
 @implementation Decoder
 
 /* Uncomment to use DisplayLayerRender Decompression*/
 // DisplayLayerRender *renderer;
 
-H264Decoder* h264Decoder;
 
-- (instancetype)init
-{
+- (id) initWithDelegate:(id<DecoderDelegate>)delegate {
     self = [super init];
-    if (self) {
-        
+    if(self) {
         /* Uncomment to use DisplayLayerRender Decompression*/
         // renderer = [DisplayLayerRender sharedManager];
-        
-        h264Decoder = [[H264Decoder alloc] init];
+        self.delegate = delegate;
+        self.h264Decoder = [[H264Decoder alloc] initWithDelegate:self];
     }
-    return self;
+    return(self);
 }
 
 -(void) receivedRawVideoFrame:(uint8_t *)frame withSize:(uint32_t)frameSize
@@ -133,10 +129,10 @@ H264Decoder* h264Decoder;
             if(status != noErr) NSLog(@"\t\t Format Description ERROR type: %d", (int)status);
             
             /* Uncomment to use VT H.264 Decompression*/
-            BOOL needNewDecompSession = [h264Decoder needNewSessionForDescription:_formatDesc];
+            BOOL needNewDecompSession = [self.h264Decoder needNewSessionForDescription:_formatDesc];
              if(needNewDecompSession)
              {
-                 [h264Decoder createDecompSessionWithDescription:_formatDesc];
+                 [self.h264Decoder createDecompSessionWithDescription:_formatDesc];
              }
             
             // now lets handle the IDR frame that (should) come after the parameter sets
@@ -146,13 +142,13 @@ H264Decoder* h264Decoder;
         }
         
         /* Uncomment to use VT H.264 Decompression*/
-        if((status == noErr) && (h264Decoder.decompressionSession == NULL))
+        if((status == noErr) && (self.h264Decoder.decompressionSession == NULL))
         {
-            [h264Decoder createDecompSessionWithDescription:_formatDesc];
+            [self.h264Decoder createDecompSessionWithDescription:_formatDesc];
         }
     
         // type 5 is an IDR frame NALU.  The SPS and PPS NALUs should always be followed by an IDR (or IFrame) NALU, as far as I know
-        if(nalu_type == 5)
+        if(nalu_type == 1)
         {
             // find the offset, or where the SPS and PPS NALUs end and the IDR frame NALU begins
             int offset = _spsSize + _ppsSize;
@@ -178,7 +174,7 @@ H264Decoder* h264Decoder;
         }
         
         // NALU type 1 is non-IDR (or PFrame) picture
-        if (nalu_type == 1)
+        if (nalu_type == 5)
         {
             // non-IDR frames do not have an offset due to SPS and PSS, so the approach
             // is similar to the IDR frames just without the offset
@@ -217,7 +213,7 @@ H264Decoder* h264Decoder;
             CFDictionarySetValue(dict, kCMSampleAttachmentKey_DisplayImmediately, kCFBooleanTrue);
             
             /* Unomment to use VT H.264 Decompression*/
-            [h264Decoder render:sampleBuffer];
+            [self.h264Decoder h264DecompressSampleBuffer:sampleBuffer];
             
             /* Uncomment to use DisplayLayerRender Decompression*/
 //            dispatch_async(dispatch_get_main_queue(), ^{
@@ -239,6 +235,10 @@ H264Decoder* h264Decoder;
         }
         //MARK: Critical Section END
     }
+}
+
+- (void)h264DecoderCompletionWithImageBuffer:(nonnull CVImageBufferRef)imageBuffer {
+    [self.delegate decoderCompletionWith:imageBuffer];
 }
 
 @end

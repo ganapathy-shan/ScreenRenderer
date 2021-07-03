@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <VideoToolbox/VideoToolbox.h>
+#import "H264Decoder.h"
 
 NSString * _Nonnull const naluTypesStrings[] =
 {
@@ -46,12 +47,21 @@ NSString * _Nonnull const naluTypesStrings[] =
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Decoder : NSObject
+@protocol DecoderDelegate <NSObject>
 
+- (void) decoderCompletionWith:(CVImageBufferRef) imageBuffer;
+
+@end
+
+@interface Decoder : NSObject <H264DecoderDelegate>
+
+@property (nonatomic, weak) id<DecoderDelegate> delegate;
 @property (nonatomic, assign) CMVideoFormatDescriptionRef formatDesc;
 @property (nonatomic, assign) int spsSize;
 @property (nonatomic, assign) int ppsSize;
+@property (nonatomic, strong) H264Decoder* h264Decoder;
 
+- (id) initWithDelegate:(id<DecoderDelegate>)delegate;
 -(void) receivedRawVideoFrame:(uint8_t *)frame withSize:(uint32_t)frameSize;
 
 @end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7A2066D783723BBEBDC02961 /* Pods_ScreenRenderer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1074A8230C2E7F0A717823E /* Pods_ScreenRenderer.framework */; };
+		C5070C93269070F000606A63 /* RenderSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5070C92269070F000606A63 /* RenderSession.swift */; };
 		C524037D268B963000D5FEE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C524037C268B963000D5FEE8 /* AppDelegate.swift */; };
 		C524037F268B963000D5FEE8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C524037E268B963000D5FEE8 /* ViewController.swift */; };
 		C5240381268B963300D5FEE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5240380268B963300D5FEE8 /* Assets.xcassets */; };
@@ -17,10 +18,10 @@
 		C52403B1268B968900D5FEE8 /* RendererTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52403B0268B968900D5FEE8 /* RendererTransport.swift */; };
 		C52403BF268BB69500D5FEE8 /* black.metal in Sources */ = {isa = PBXBuildFile; fileRef = C52403BD268BB69500D5FEE8 /* black.metal */; };
 		C52403C0268BB69500D5FEE8 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52403BE268BB69500D5FEE8 /* Filter.swift */; };
+		C551FADC2690D1EE00876688 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = C551FADB2690D1EE00876688 /* Shaders.metal */; };
+		C551FAF42690DD7500876688 /* MTKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551FAF32690DD7500876688 /* MTKViewController.swift */; };
 		C5E9B3C1268CC92E00C7C988 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9B3C0268CC92E00C7C988 /* Data+Extension.swift */; };
 		C5E9B3D1268CF1D600C7C988 /* Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E9B3D0268CF1D600C7C988 /* Decoder.m */; };
-		C5E9B3D8268DACF000C7C988 /* MTKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9B3D7268DACF000C7C988 /* MTKViewController.swift */; };
-		C5E9B3E0268DADBE00C7C988 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = C5E9B3DF268DADBE00C7C988 /* Shaders.metal */; };
 		C5E9B3E7268E0C0C00C7C988 /* DisplayLayerRender.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E9B3E6268E0C0C00C7C988 /* DisplayLayerRender.m */; };
 		C5E9B3F6268E39EF00C7C988 /* H264Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E9B3F5268E39EF00C7C988 /* H264Decoder.m */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		9729F6077F79B24B96697838 /* Pods-ScreenRenderer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenRenderer.debug.xcconfig"; path = "Target Support Files/Pods-ScreenRenderer/Pods-ScreenRenderer.debug.xcconfig"; sourceTree = "<group>"; };
+		C5070C92269070F000606A63 /* RenderSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderSession.swift; sourceTree = "<group>"; };
 		C5240379268B963000D5FEE8 /* ScreenRenderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenRenderer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C524037C268B963000D5FEE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C524037E268B963000D5FEE8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,12 +62,12 @@
 		C52403B0268B968900D5FEE8 /* RendererTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendererTransport.swift; sourceTree = "<group>"; };
 		C52403BD268BB69500D5FEE8 /* black.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = black.metal; sourceTree = "<group>"; };
 		C52403BE268BB69500D5FEE8 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		C551FADB2690D1EE00876688 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		C551FAF32690DD7500876688 /* MTKViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTKViewController.swift; sourceTree = "<group>"; };
 		C5E9B3B0268CB50D00C7C988 /* ScreenRenderer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScreenRenderer-Bridging-Header.h"; sourceTree = "<group>"; };
 		C5E9B3C0268CC92E00C7C988 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		C5E9B3CF268CF1D600C7C988 /* Decoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		C5E9B3D0268CF1D600C7C988 /* Decoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Decoder.m; sourceTree = "<group>"; };
-		C5E9B3D7268DACF000C7C988 /* MTKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTKViewController.swift; sourceTree = "<group>"; };
-		C5E9B3DF268DADBE00C7C988 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		C5E9B3E5268E0C0C00C7C988 /* DisplayLayerRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayLayerRender.h; sourceTree = "<group>"; };
 		C5E9B3E6268E0C0C00C7C988 /* DisplayLayerRender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayLayerRender.m; sourceTree = "<group>"; };
 		C5E9B3F4268E39EF00C7C988 /* H264Decoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H264Decoder.h; sourceTree = "<group>"; };
@@ -134,10 +136,11 @@
 		C524037B268B963000D5FEE8 /* ScreenRenderer */ = {
 			isa = PBXGroup;
 			children = (
+				C551FAF32690DD7500876688 /* MTKViewController.swift */,
 				C524037C268B963000D5FEE8 /* AppDelegate.swift */,
 				C524037E268B963000D5FEE8 /* ViewController.swift */,
-				C5E9B3D7268DACF000C7C988 /* MTKViewController.swift */,
 				C52403B0268B968900D5FEE8 /* RendererTransport.swift */,
+				C5070C92269070F000606A63 /* RenderSession.swift */,
 				C5240380268B963300D5FEE8 /* Assets.xcassets */,
 				C5240382268B963300D5FEE8 /* Main.storyboard */,
 				C5240385268B963300D5FEE8 /* Info.plist */,
@@ -150,9 +153,9 @@
 				C5E9B3D0268CF1D600C7C988 /* Decoder.m */,
 				C5E9B3F4268E39EF00C7C988 /* H264Decoder.h */,
 				C5E9B3F5268E39EF00C7C988 /* H264Decoder.m */,
-				C5E9B3DF268DADBE00C7C988 /* Shaders.metal */,
 				C5E9B3E5268E0C0C00C7C988 /* DisplayLayerRender.h */,
 				C5E9B3E6268E0C0C00C7C988 /* DisplayLayerRender.m */,
+				C551FADB2690D1EE00876688 /* Shaders.metal */,
 			);
 			path = ScreenRenderer;
 			sourceTree = "<group>";
@@ -357,15 +360,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5E9B3E0268DADBE00C7C988 /* Shaders.metal in Sources */,
+				C551FADC2690D1EE00876688 /* Shaders.metal in Sources */,
 				C524037F268B963000D5FEE8 /* ViewController.swift in Sources */,
 				C5E9B3D1268CF1D600C7C988 /* Decoder.m in Sources */,
 				C52403C0268BB69500D5FEE8 /* Filter.swift in Sources */,
 				C5E9B3F6268E39EF00C7C988 /* H264Decoder.m in Sources */,
+				C551FAF42690DD7500876688 /* MTKViewController.swift in Sources */,
 				C52403B1268B968900D5FEE8 /* RendererTransport.swift in Sources */,
 				C52403BF268BB69500D5FEE8 /* black.metal in Sources */,
 				C524037D268B963000D5FEE8 /* AppDelegate.swift in Sources */,
-				C5E9B3D8268DACF000C7C988 /* MTKViewController.swift in Sources */,
+				C5070C93269070F000606A63 /* RenderSession.swift in Sources */,
 				C5E9B3E7268E0C0C00C7C988 /* DisplayLayerRender.m in Sources */,
 				C5E9B3C1268CC92E00C7C988 /* Data+Extension.swift in Sources */,
 			);
@@ -539,6 +543,7 @@
 				CODE_SIGN_ENTITLEMENTS = ScreenRenderer/ScreenRenderer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CC45WN7B7T;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = ScreenRenderer/Info.plist;
@@ -564,6 +569,7 @@
 				CODE_SIGN_ENTITLEMENTS = ScreenRenderer/ScreenRenderer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CC45WN7B7T;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = ScreenRenderer/Info.plist;

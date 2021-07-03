@@ -9,6 +9,14 @@
 
 @implementation H264Decoder
 
+-(id) initWithDelegate:(id<H264DecoderDelegate>)delegate {
+    self = [super init];
+    if(self) {
+        self.delegate = delegate;
+    }
+    return(self);
+}
+
 - (void) createDecompSessionWithDescription:(CMVideoFormatDescriptionRef)formatDesc
 {
     // make sure to destroy the old VTD session
@@ -49,12 +57,12 @@ void decompressionSessionDecodeFrameCallback(void *decompressionOutputRefCon,
     else
     {
         NSLog(@"Decompressed sucessfully");
-        
+        [((__bridge H264Decoder *)decompressionOutputRefCon).delegate h264DecoderCompletionWithImageBuffer:imageBuffer];
         // TODO: Render using MetalKit View
     }
 }
 
-- (void) render:(CMSampleBufferRef)sampleBuffer
+- (void) h264DecompressSampleBuffer:(CMSampleBufferRef)sampleBuffer
 {
     VTDecodeFrameFlags flags = kVTDecodeFrame_EnableAsynchronousDecompression;
     VTDecodeInfoFlags flagOut;

@@ -9,18 +9,21 @@ import Foundation
 import CocoaAsyncSocket
 import VideoToolbox
 
+protocol RendererTransportDelegate {
+    func renderTransport(_ transport: RendererTransport, didReceiveData data: Data)
+}
+
 class RendererTransport: NSObject, GCDAsyncUdpSocketDelegate {
     
     var hostIP : String = "127.0.0.1"
     var port : UInt16 = 22560
     var socket : GCDAsyncUdpSocket? = nil
     var dispatchQueue = DispatchQueue.init(label: "com.receive.queue", qos: .background, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
-
-    let decoder = Decoder()
-    override init() {
+    var delegate : RendererTransportDelegate?
+    public init(delegate: RendererTransportDelegate? = nil) {
         super.init()
-        
-        setUpConnection()
+        self.delegate = delegate
+        self.setUpConnection()
     }
     
     func setUpConnection() {
@@ -46,12 +49,7 @@ class RendererTransport: NSObject, GCDAsyncUdpSocketDelegate {
 
     func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
         print("Data Received")
-        
-        var mutableData = data
-
-        mutableData.withUnsafeMutableBytes({ (bytes: UnsafeMutablePointer<UInt8>) -> Void in
-            decoder.receivedRawVideoFrame(bytes, withSize: UInt32(data.count))
-        })        
+        self.delegate?.renderTransport(self, didReceiveData: data)
     }
     
     func udpSocketDidClose(_ sock: GCDAsyncUdpSocket, withError error: Error?) {

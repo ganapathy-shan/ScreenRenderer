@@ -7,9 +7,9 @@
 
 import Cocoa
 
-class ViewController : NSViewController {
+class ViewController : MTKViewController {
     @IBOutlet var displayView: NSView!
-    
+    var renderSession : RenderSession? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,7 +18,8 @@ class ViewController : NSViewController {
     
     override func viewDidAppear() {
         super.viewDidAppear()
-        DisplayLayerRender.sharedManager().setView(displayView)
+        renderSession = RenderSession(delegate: self)
+        //DisplayLayerRender.sharedManager().setView(displayView)
     }
     
     override var representedObject: Any? {
@@ -26,7 +27,13 @@ class ViewController : NSViewController {
             // Update the view, if already loaded.
         }
     }
+}
+
+extension ViewController : RenderSessionDelegate
+{
+    func renderSession(_ session: RenderSession, didReceiveFrameAsTextures texture: MTLTexture) {
+        self.texture = texture
+    }
     
     
 }
-
