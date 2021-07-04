@@ -33,6 +33,7 @@ class ViewController : MTKViewController {
 extension ViewController : RenderSessionDelegate
 {
     func renderSession(_ session: RenderSession, didReceiveFrameAsTextures texture: MTLTexture) {
+        //Uncomment below lines for Testing the metal rendering
 //        let image = NSImage(named: "SampleImage.jpg")
 //        let textureLoader = MTKTextureLoader(device: self.device!)
 //        let cgImage = (image?.cgImage(forProposedRect: nil, context: nil, hints: nil))!
