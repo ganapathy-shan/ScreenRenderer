@@ -8,7 +8,7 @@ Render H264 image streams received through socket by using GPU.
 - All the above functionalities runs on the background queue.
 
 TODO:
-- Render the decompressed data using MetalKit.
+- Fix the shaders to render the images properly(It is distorted currently)
 
 
 Build instruction: 
