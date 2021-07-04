@@ -48,7 +48,7 @@ public class RenderSession : NSObject{
         }
     }
     
-    private func createTexture(imageBuffer: CVImageBuffer, textureCache: CVMetalTextureCache?, planeIndex: Int = 0, pixelFormat: MTLPixelFormat = .bgra8Unorm) throws -> MTLTexture? {
+    private func createTexture(imageBuffer: CVImageBuffer, textureCache: CVMetalTextureCache?, planeIndex: Int = 0, pixelFormat: MTLPixelFormat = .bgra8Unorm_srgb) throws -> MTLTexture? {
 
         guard let textureCache = textureCache else {
             return nil
@@ -109,6 +109,9 @@ extension RenderSession : RendererTransportDelegate {
 extension RenderSession : DecoderDelegate
 {
     public func decoderCompletion(with imageBuffer: CVImageBuffer) {
+//        let cgImage = getCGImageFromImageBuffer(imageBuffer: imageBuffer)!
+//        let nsimage = NSImage.init(cgImage: cgImage, size: .zero)
+//
         let texture: MTLTexture? = try? createTexture(imageBuffer: imageBuffer, textureCache: self.textureCache)
         guard let textureToRender = texture else {
             return
@@ -117,4 +120,12 @@ extension RenderSession : DecoderDelegate
             self.delegate?.renderSession(self, didReceiveFrameAsTextures: textureToRender)
         }
     }
+    
+//    func getCGImageFromImageBuffer(imageBuffer:CVImageBuffer) -> CGImage? {
+//        
+//        let ciImage = CIImage(cvImageBuffer: imageBuffer)
+//        let context = CIContext(options: nil)
+//        let cgImage = context.createCGImage(ciImage, from: CGRect(x: 0, y: 0, width: CVPixelBufferGetWidth(imageBuffer), height: CVPixelBufferGetHeight(imageBuffer)))
+//        return cgImage
+//    }
 }

@@ -5,12 +5,7 @@
 import Foundation
 import Cocoa
 import Metal
-
-#if arch(i386) || arch(x86_64)
-#else
 import MetalKit
-#endif
-
 /**
  * A `UIViewController` that allows quick and easy rendering of Metal textures. Currently only supports textures from single-plane pixel buffers, e.g. it can only render a single RGB texture and won't be able to render multiple YCbCr textures. Although this functionality can be added by overriding `MTKViewController`'s `willRenderTexture` method.
  */
@@ -50,11 +45,7 @@ class MTKViewController: NSViewController {
     
     override open func loadView() {
         super.loadView()
-        #if arch(i386) || arch(x86_64)
-        NSLog("Failed creating a default system Metal device, since Metal is not available on iOS Simulator.")
-        #else
         assert(device != nil, "Failed creating a default system Metal device. Please, make sure Metal is available on your hardware.")
-        #endif
         initializeMetalView()
         initializeRenderPipelineState()
     }
@@ -66,23 +57,20 @@ class MTKViewController: NSViewController {
      
      */
     fileprivate func initializeMetalView() {
-        #if arch(i386) || arch(x86_64)
-        #else
         metalView = MTKView(frame: view.bounds, device: device)
         metalView.delegate = self
         metalView.framebufferOnly = true
-        metalView.colorPixelFormat = .bgra8Unorm
-        metalView.contentScaleFactor = UIScreen.main.scale
-        metalView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.insertSubview(metalView, at: 0)
-        #endif
+        metalView.colorPixelFormat = .bgra8Unorm_srgb
+        metalView.preferredFramesPerSecond = 30
+        metalView.autoresizingMask = [.width, .height]
+        self.view.addSubview(metalView)
+//        metalView.contentScaleFactor = UIScreen.main.scale
+//        metalView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
     }
     
-    #if arch(i386) || arch(x86_64)
-    #else
-    /// `UIViewController`'s view
+
     internal var metalView: MTKView!
-    #endif
     
     /// Metal device
     internal var device = MTLCreateSystemDefaultDevice()
@@ -109,7 +97,7 @@ class MTKViewController: NSViewController {
         
         let pipelineDescriptor = MTLRenderPipelineDescriptor()
         pipelineDescriptor.sampleCount = 1
-        pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm_srgb
         pipelineDescriptor.depthAttachmentPixelFormat = .invalid
         
         /**
@@ -131,12 +119,13 @@ class MTKViewController: NSViewController {
     }
 }
 
-#if arch(i386) || arch(x86_64)
-#else
-
 // MARK: - MTKViewDelegate and rendering
 extension MTKViewController: MTKViewDelegate {
     public func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
+        if let layer = self.view.layer
+        {
+            view.layer?.frame = layer.frame
+        }
         NSLog("MTKView drawable size will change to \(size)")
     }
     
@@ -190,7 +179,6 @@ extension MTKViewController: MTKViewDelegate {
         }
         commandBuffer.present(currentDrawable)
         commandBuffer.commit()
+        commandBuffer.waitUntilCompleted()
     }
 }
-
-#endif
