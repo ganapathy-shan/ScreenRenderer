@@ -20,6 +20,7 @@
 		C52403C0268BB69500D5FEE8 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52403BE268BB69500D5FEE8 /* Filter.swift */; };
 		C551FADC2690D1EE00876688 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = C551FADB2690D1EE00876688 /* Shaders.metal */; };
 		C551FAF42690DD7500876688 /* MTKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551FAF32690DD7500876688 /* MTKViewController.swift */; };
+		C59FE3C1269224D000FE7ED8 /* SampleImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C59FE3C0269224D000FE7ED8 /* SampleImage.jpg */; };
 		C5E9B3C1268CC92E00C7C988 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9B3C0268CC92E00C7C988 /* Data+Extension.swift */; };
 		C5E9B3D1268CF1D600C7C988 /* Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E9B3D0268CF1D600C7C988 /* Decoder.m */; };
 		C5E9B3E7268E0C0C00C7C988 /* DisplayLayerRender.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E9B3E6268E0C0C00C7C988 /* DisplayLayerRender.m */; };
@@ -64,6 +65,7 @@
 		C52403BE268BB69500D5FEE8 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		C551FADB2690D1EE00876688 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		C551FAF32690DD7500876688 /* MTKViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTKViewController.swift; sourceTree = "<group>"; };
+		C59FE3C0269224D000FE7ED8 /* SampleImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = SampleImage.jpg; path = ../../../Downloads/SampleImage.jpg; sourceTree = "<group>"; };
 		C5E9B3B0268CB50D00C7C988 /* ScreenRenderer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScreenRenderer-Bridging-Header.h"; sourceTree = "<group>"; };
 		C5E9B3C0268CC92E00C7C988 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		C5E9B3CF268CF1D600C7C988 /* Decoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				C52403B0268B968900D5FEE8 /* RendererTransport.swift */,
 				C5070C92269070F000606A63 /* RenderSession.swift */,
 				C5240380268B963300D5FEE8 /* Assets.xcassets */,
+				C59FE3C0269224D000FE7ED8 /* SampleImage.jpg */,
 				C5240382268B963300D5FEE8 /* Main.storyboard */,
 				C5240385268B963300D5FEE8 /* Info.plist */,
 				C5240386268B963300D5FEE8 /* ScreenRenderer.entitlements */,
@@ -294,6 +297,7 @@
 			files = (
 				C5240381268B963300D5FEE8 /* Assets.xcassets in Resources */,
 				C5240384268B963300D5FEE8 /* Main.storyboard in Resources */,
+				C59FE3C1269224D000FE7ED8 /* SampleImage.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
