@@ -7,7 +7,7 @@ import Cocoa
 import Metal
 import MetalKit
 /**
- * A `UIViewController` that allows quick and easy rendering of Metal textures. Currently only supports textures from single-plane pixel buffers, e.g. it can only render a single RGB texture and won't be able to render multiple YCbCr textures. Although this functionality can be added by overriding `MTKViewController`'s `willRenderTexture` method.
+ * A `NSViewController` that allows quick and easy rendering of Metal textures. Currently only supports textures from single-plane pixel buffers, e.g. it can only render a single RGB texture and won't be able to render multiple YCbCr textures. Although this functionality can be added by overriding `MTKViewController`'s `willRenderTexture` method.
  */
 class MTKViewController: NSViewController {
     // MARK: - Public interface
@@ -53,7 +53,7 @@ class MTKViewController: NSViewController {
     // MARK: - Private Metal-related properties and methods
     
     /**
-     initializes and configures the `MTKView` we use as `UIViewController`'s view.
+     initializes and configures the `MTKView` we use as `NSViewController`'s view.
      
      */
     fileprivate func initializeMetalView() {
@@ -148,7 +148,7 @@ extension MTKViewController: MTKViewDelegate {
     }
     
     /**
-     Renders texture into the `UIViewController`'s view.
+     Renders texture into the `NSViewController`'s view.
      
      - parameter texture:       Texture to be rendered
      - parameter commandBuffer: Command buffer we will use for drawing
