@@ -8,7 +8,7 @@ Render H264 image streams received through socket by using GPU.
 - All the above functionalities runs on the background queue.
 
 TODO:
-- Fix the shaders to render the images properly(It is distorted currently)
+- Fix the issue with rendering. Needs to find a way to properly render 420v (kCVPixelFormatType_420YpCbCr8BiPlanarFullRange) image buffer.
 
 
 Build instruction: 
